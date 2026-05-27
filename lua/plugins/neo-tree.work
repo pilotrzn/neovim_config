@@ -1,0 +1,78 @@
+return {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+    },
+    config = function()
+        local function setup_navigation()
+--            local opts = { noremap = true, silent = true }
+---            vim.keymap.set("n", "<leader>e", ":Neotree letf toggle<CR>", opts)
+ --            vim.keymap.set("n", "<leader>E", ":Neotree position=current<CR>", opts)
+        end
+
+        require("neo-tree").setup({
+            window = {
+                position = "left",
+                width = 30,
+                mappings = {
+                    ["<2-LeftMouse>"] = "open",
+                    ["<CR>"] = "open",
+                    ["a"] = "add",
+                    ["d"] = "delete",
+                    ["r"] = "rename",
+                    ["y"] = "copy_to_clipboard",
+                    ["x"] = "cut_to_clipboard",
+                    ["p"] = "paste_from_clipboard",
+                    ["s"] = "split_with_window_picker",
+                    ["S"] = "vsplit_with_window_picker",
+                    ["<C-r>"] = "refresh",
+                    ["H"] = "toggle_hidden",
+                },
+            },
+            default_component_configs = {
+                icon = {
+                    folder_closed = "",
+                    folder_open = "",
+                    default = "",
+                },
+                git_status = {
+                    symbols = {
+                        added = "✚",
+                        modified = "",
+                        deleted = "✖",
+                        renamed = "r",
+                        untracked = "",
+                        ignored = "",
+                        unstaged = "U",
+                        staged = "",
+                        conflict = "",
+                    },
+                },
+            },
+            sources = { "filesystem" },
+            source_selector = {
+                winbar = false,
+                statusline = false,
+            },
+            filesystem = {
+                filtered_items = {
+                    visible = false,
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
+                    never_show = { ".DS_Store", "thumbs.db" },
+                },
+                follow_current_file = { enabled = true },
+                use_libuv_file_watcher = true,
+            },
+            event_handlers = {
+                {
+                    event = "neo_tree_buffer_enter",
+                    handler = setup_navigation,
+                },
+            },
+        })
+    end,
+}
