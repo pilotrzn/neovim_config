@@ -8,6 +8,13 @@ return {
 				json = { "fixjson" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				vue = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = function(bufnr)

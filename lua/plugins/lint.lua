@@ -6,6 +6,11 @@ return {
 			python = { "ruff" },
 			yaml = { "yamllint" },
 			markdown = { "markdownlint-cli2" },
+			javascript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			vue = { "eslint_d" },
 		}
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 			callback = function()

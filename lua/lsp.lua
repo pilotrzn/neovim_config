@@ -28,6 +28,48 @@ vim.filetype.add({
 	},
 })
 
+-- JavaScript / TypeScript (vtsls)
+vim.lsp.config("vtsls", {
+	cmd = { "vtsls", "--stdio" },
+	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	root_markers = { "package.json", "tsconfig.json", ".git" },
+	settings = {
+		typescript = {
+			tsserver = { useSeparateSyntaxServer = true },
+			preferences = { importModuleSpecifier = "non-relative" },
+		},
+		javascript = {
+			format = { enable = true },
+		},
+	},
+	on_attach = on_attach,
+})
+
+-- Vue Language Server (Volar)
+vim.lsp.config("vue", {
+	cmd = { "vue-language-server", "--stdio" },
+	filetypes = { "vue" },
+	root_markers = { "package.json", "vite.config.js", ".git" },
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = vim.fn.stdpath("data")
+					.. "/mason/packages/vue-language-server/node_modules/@vue/typescript-plugin",
+			},
+		},
+	},
+	on_attach = on_attach,
+})
+
+-- HTML Language Server
+vim.lsp.config("html", {
+	cmd = { "vscode-html-language-server", "--stdio" },
+	filetypes = { "html", "htmldjango" },
+	root_markers = { ".git", "package.json" },
+	on_attach = on_attach,
+})
+
 vim.lsp.config("ansiblels", {
 	cmd = { "ansible-language-server", "--stdio" },
 	filetypes = { "yaml", "ansible", "yml" },
@@ -83,6 +125,9 @@ vim.lsp.enable("yamlls")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("bashls")
 vim.lsp.enable("jinja_lsp")
+vim.lsp.enable("html")
+vim.lsp.enable("vtsls")
+vim.lsp.enable("vue")
 
 vim.api.nvim_create_user_command("LspInfo", function()
 	local clients = vim.lsp.get_clients()
