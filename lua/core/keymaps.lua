@@ -9,7 +9,12 @@ vim.g.maplocalleader = " "
 -- Buffer
 map("n", "<leader>w", ":w<CR>", { desc = "Сохранить файл(буффер)" })
 map("i", "jj", "<Esc>", { desc = "Выход из режима вставки" })
-map("n", "<leader>bd", ":bp | bd #<CR>", { desc = "Закрыть буфер и перейти на предыдущий" })
+map(
+	"n",
+	"<leader>bd",
+	":bp | bd #<CR>",
+	{ desc = "Закрыть буфер и перейти на предыдущий" }
+)
 
 -- Navigation
 map("n", "<C-j>", "<C-w>j", { desc = "Переключить на нижнее окно" })
@@ -34,10 +39,15 @@ map("n", "|", ":vsplit<CR>", { desc = "Разделить вертикально
 map("n", "\\", ":split<CR>", { desc = "Разделить горизонтально" })
 
 -- Close
- map("n", "<leader>q", ":q<CR>", { desc = "Close file" })
+map("n", "<leader>q", ":q<CR>", { desc = "Close file" })
 
 -- Neo-tree
-map("n", "<leader>e", ":Neotree left toggle reveal<CR>", { desc = "Показать дерево", noremap = true, silent = true })
+map(
+	"n",
+	"<leader>e",
+	":Neotree left toggle reveal<CR>",
+	{ desc = "Показать дерево", noremap = true, silent = true }
+)
 
 -- tabs
 map("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
@@ -50,3 +60,8 @@ map("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Start MD preview" })
 map("n", "<leader>mps", ":MarkdownPreviewStop<CR>", { desc = "Stop MD preview" })
 -- Переключить предпросмотр (включить, если выключен, и наоборот)
 map("n", "<leader>mpt", ":MarkdownPreviewToggle<CR>", { desc = "Toggle MD preview" })
+
+-- Обернуть слово в двойные кавычки
+-- map("n", '<leader>"', 'ciw"<C-R>""<Esc>', { desc = "Wrap word in double quotes" })
+-- Обернуть слово в одинарные кавычки
+-- map("n", "<leader>'", "ciw'<C-R>\"'<Esc>", { desc = "Wrap word in single quotes" })

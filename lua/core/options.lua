@@ -26,7 +26,7 @@ opt.undofile = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.guicursor = ""
-opt.colorcolumn = "80"
+opt.colorcolumn = "120"
 
 -- clipboard
 opt.clipboard = "unnamedplus"
