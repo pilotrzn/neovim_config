@@ -21,6 +21,8 @@ return {
 					fg = "#ffffff",
 					bold = true,
 				},
+				WinSeparator = { fg = "#88ccff" }, -- белый
+				NvimTreeWinSeparator = { fg = "#ffffff", bold = true },
 			},
 		})
 		require("onedark").load()

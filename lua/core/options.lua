@@ -32,7 +32,8 @@ opt.colorcolumn = "120"
 opt.clipboard = "unnamedplus"
 
 vim.opt.fillchars = {
-	vert = "│",
+	vert = "▐",
+	horiz = "━",
 	fold = "⠀",
 	eob = " ", -- suppress ~ at EndOfBuffer
 	-- diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
@@ -40,4 +41,9 @@ vim.opt.fillchars = {
 	foldopen = "▾",
 	foldsep = "│",
 	foldclose = "▸",
+	horizup = "┻", -- углы для пересечений
+	horizdown = "┳",
+	vertleft = "┨",
+	vertright = "┣",
+	verthoriz = "╋",
 } --  Fillcharts
