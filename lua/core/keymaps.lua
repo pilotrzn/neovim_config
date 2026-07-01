@@ -53,15 +53,10 @@ map(
 map("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
 map("n", "<s-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Switch to prev buffer" })
 map("n", "<leader>x", ":BufferLinePickClose<CR>")
-map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
+map("n", "<leader>X", ":BufferLineCloseOthers<CR>")
 
 -- markdown
 map("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "Start MD preview" })
 map("n", "<leader>mps", ":MarkdownPreviewStop<CR>", { desc = "Stop MD preview" })
 -- Переключить предпросмотр (включить, если выключен, и наоборот)
 map("n", "<leader>mpt", ":MarkdownPreviewToggle<CR>", { desc = "Toggle MD preview" })
-
--- Обернуть слово в двойные кавычки
--- map("n", '<leader>"', 'ciw"<C-R>""<Esc>', { desc = "Wrap word in double quotes" })
--- Обернуть слово в одинарные кавычки
--- map("n", "<leader>'", "ciw'<C-R>\"'<Esc>", { desc = "Wrap word in single quotes" })
