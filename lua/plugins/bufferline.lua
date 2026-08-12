@@ -28,6 +28,30 @@ return {
 						return s
 					end,
 					always_show_bufferline = true,
+					formatter = function(bufnr, buffer)
+						local path = vim.api.nvim_buf_get_name(bufnr)
+						if path == "" then
+							return "[No Name]"
+						end
+
+						local filename = vim.fn.fnamemodify(path, ":t")
+						-- Проверяем, есть ли другие буферы с таким же именем
+						local same_name_buffers = vim.tbl_filter(function(b)
+							return b ~= bufnr and vim.fn.fnamemodify(vim.api.nvim_buf_get_name(b), ":t") == filename
+						end, vim.api.nvim_list_bufs())
+
+						if #same_name_buffers > 0 then
+							-- Если есть дубли, показываем последнюю папку пути
+							local parent = vim.fn.fnamemodify(path, ":h:t")
+							if parent ~= "" and parent ~= "." then
+								return parent .. "/" .. filename
+							else
+								return filename
+							end
+						else
+							return filename
+						end
+					end,
 				},
 				highlights = {
 					background = {
