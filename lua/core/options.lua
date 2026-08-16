@@ -1,5 +1,6 @@
 local opt = vim.opt
-
+-- Добавить путь к бинарникам Mason
+vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
 -- Line numbers
 opt.number = true
 opt.relativenumber = true

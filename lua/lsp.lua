@@ -82,7 +82,18 @@ vim.lsp.config("pyright", {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_markers = { ".git", "pyproject.toml", "setup.py", "requirements.txt" },
-	settings = { python = { analysis = { typeCheckingMode = "basic" } } },
+	settings = {
+		python = {
+			analysis = {
+				typeCheckingMode = "basic",
+				diagnosticSeverity = {
+					reportUnusedImport = "none",
+					reportUnusedFunction = "none",
+					reportUnusedVariable = "none",
+				},
+			},
+		},
+	},
 	on_attach = on_attach,
 })
 
