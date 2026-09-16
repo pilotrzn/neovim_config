@@ -5,6 +5,8 @@ vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
 opt.number = true
 opt.relativenumber = true
 
+vim.api.nvim_set_hl(0, "TermCursor", { bg = "#ffffff" })
+
 -- Indent
 opt.tabstop = 4
 opt.softtabstop = 4
