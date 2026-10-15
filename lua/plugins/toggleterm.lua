@@ -5,6 +5,7 @@ return {
 		config = true,
 		config = function()
 			require("toggleterm").setup({
+				shell = "zsh",
 				--				size = 20,
 				--				direction = "horizontal",
 				open_mapping = [[<c-\>]],
@@ -18,6 +19,7 @@ return {
 						return math.ceil(vim.o.lines * 0.85)
 					end,
 				},
+				env = { TERM = "xterm-256color" },
 			})
 			function _G.set_terminal_keymaps()
 				local opts = { buffer = 0 }
