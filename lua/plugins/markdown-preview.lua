@@ -2,9 +2,9 @@ return {
 	"iamcco/markdown-preview.nvim",
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 	ft = { "markdown" },
-	--	build = function()
-	--		vim.fn["mkdp#util#install"]()
-	--	end,
+	build = function()
+		vim.fn["mkdp#util#install"]()
+	end,
 	-- Здесь прописываем глобальные переменные для конфигурации плагина
 	init = function()
 		-- 1. Настройки автостарта и авто-закрытия

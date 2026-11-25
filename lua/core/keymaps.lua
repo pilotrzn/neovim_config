@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-local opts = { noremap = true, silent = true }
+local opts = { remap = false, silent = true }
 
 -- leader
 vim.g.mapleader = " "
@@ -9,20 +9,15 @@ vim.g.maplocalleader = " "
 -- Buffer
 map("n", "<leader>w", ":w<CR>", { desc = "Сохранить файл(буффер)" })
 map("i", "jj", "<Esc>", { desc = "Выход из режима вставки" })
-map(
-	"n",
-	"<leader>bd",
-	":bp | bd #<CR>",
-	{ desc = "Закрыть буфер и перейти на предыдущий" }
-)
+-- Закрытие буфера: см. плагин bufdel.lua (<leader>bd / <leader>bD / <leader>bw)
 -- Открыть пустой буфер
 vim.keymap.set("n", "<leader>bn", ":enew<CR>", { desc = "Открыть новый пустой буфер" })
 
 -- Navigation
 map("n", "<C-j>", "<C-w>j", { desc = "Переключить на нижнее окно" })
 map("n", "<C-k>", "<C-w>k", { desc = "Переключить на верхее окно" })
-map("n", "<C-h>", "<C-w>h", { desc = "Переключить на правое окно" })
-map("n", "<C-l>", "<C-w>l", { desc = "Переключить на левое окно" })
+map("n", "<C-h>", "<C-w>h", { desc = "Переключить на левое окно" })
+map("n", "<C-l>", "<C-w>l", { desc = "Переключить на правое окно" })
 
 -- registers
 map("n", "<leader>r", ":registers<CR>", { desc = "Показать регистры" })

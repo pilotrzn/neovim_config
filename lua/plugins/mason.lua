@@ -18,9 +18,11 @@ return {
 					"jinja_lsp",
 					"ansiblels", -- Ansible
 					"yamlls", -- YAML (поддержка схем)
-					"ruff", -- линтер/форматтер Python (опционально)
+					"bashls", -- Bash
+					"marksman", -- Markdown
 				},
-				automatic_installation = true,
+				-- Линтеры/форматтеры (ruff, stylua, prettier, ...) ставятся
+				-- через mason-tool-installer (см. plugins/mason-tool-installer.lua)
 			})
 		end,
 	},

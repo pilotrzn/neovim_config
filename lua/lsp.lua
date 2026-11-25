@@ -10,13 +10,14 @@ local on_attach = function(client, bufnr)
 	map("n", "gr", buf.references, opts)
 	map("n", "<leader>lr", buf.rename, opts)
 	map("n", "<leader>ca", buf.code_action, opts)
-	map("n", "[d", vim.diagnostic.goto_prev, opts)
-	map("n", "]d", vim.diagnostic.goto_next, opts)
+	map("n", "[d", function()
+		vim.diagnostic.jump({ count = -1, float = true })
+	end, opts)
+	map("n", "]d", function()
+		vim.diagnostic.jump({ count = 1, float = true })
+	end, opts)
 	map("n", "<leader>F", function()
-		require("conform").format({
-			async = true,
-			lsp_fallback = true,
-		})
+		require("conform").format({ async = true, lsp_format = "fallback" })
 	end, opts)
 end
 
