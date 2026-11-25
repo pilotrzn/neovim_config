@@ -14,7 +14,7 @@ return {
 
 		-- 2. Настройки браузера (!!! ВАЖНО !!!)
 		-- Укажи путь к своему браузеру, чтобы плагин точно его нашёл и открыл
-		vim.g.mkdp_browser = "/usr/bin/yandex-browser-stable" -- Для Google Chrome
+		vim.g.mkdp_browser = "/usr/bin/chromium-browser" -- Для Google Chrome
 		-- vim.g.mkdp_browser = "/usr/bin/firefox"             -- Для Firefox
 		-- vim.g.mkdp_browser = "/usr/bin/brave-browser"       -- Для Brave
 		-- vim.g.mkdp_browser = "open -a Safari"               -- Для macOS

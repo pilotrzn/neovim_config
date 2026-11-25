@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("auto-save").setup({
 			enabled = true,
-			trigger_events = { "InsertLeave", "TextChanged" }, -- когда сохранять
+			trigger_events = { "InsertLeave" }, -- когда сохранять
 			condition = function(buf)
 				local fn = vim.fn
 				local utils = require("auto-save.utils.data")
