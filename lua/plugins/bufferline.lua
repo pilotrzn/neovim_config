@@ -20,10 +20,10 @@ return {
 					right_trunc_marker = "",
 					diagnostics = "nvim_lsp",
 					diagnostic_indicator = function(count, level, diagnostic_dict, context)
-						local s = " "
-						for e, _ in pairs(diagnostic_dict) do
+						local s = ""
+						for e, c in pairs(diagnostic_dict) do
 							local sym = e == "error" and " " or (e == "warning" and " " or " ")
-							s = s .. sum
+							s = s .. (sym or "") .. c .. " "
 						end
 						return s
 					end,

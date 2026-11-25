@@ -4,11 +4,6 @@ return {
 		config = function()
 			require("dressing").setup({
 				input = {
-					win_options = {
-						winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-					},
-				},
-				input = {
 					-- Set to false to disable the vim.ui.input implementation
 					enabled = true,
 
@@ -39,6 +34,7 @@ return {
 
 					buf_options = {},
 					win_options = {
+						winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 						-- Disable line wrapping
 						wrap = false,
 						-- Indicator for when text exceeds window

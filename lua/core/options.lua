@@ -1,6 +1,6 @@
 local opt = vim.opt
 -- Добавить путь к бинарникам Mason
-vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
 -- Line numbers
 opt.number = true
 opt.relativenumber = true
@@ -17,7 +17,6 @@ opt.smartindent = true
 
 -- Mouse
 opt.mouse = "a"
-opt.mousefocus = true
 
 -- Other
 opt.scrolloff = 15
@@ -26,7 +25,6 @@ opt.termguicolors = true
 opt.swapfile = false
 opt.backup = false
 opt.undofile = true
-opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.guicursor = ""
 opt.colorcolumn = "120"
@@ -50,3 +48,24 @@ vim.opt.fillchars = {
 	vertright = "┣",
 	verthoriz = "╋",
 } --  Fillcharts
+
+-- Прозрачные плавающие окна (переприменяем после смены цветовой схемы)
+local function transparent_floats()
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", fg = "none" })
+	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "none" })
+end
+vim.api.nvim_create_autocmd("ColorScheme", { callback = transparent_floats })
+transparent_floats()
+
+-- Иконки в signcolumn для диагностик
+local severity = vim.diagnostic.severity
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[severity.ERROR] = " ",
+			[severity.WARN] = " ",
+			[severity.INFO] = " ",
+			[severity.HINT] = " ",
+		},
+	},
+})

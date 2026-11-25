@@ -8,19 +8,6 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", fg = "none" })
-			vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "none" })
-			local severity = vim.diagnostic.severity
-			vim.diagnostic.config({
-				signs = {
-					text = {
-						[severity.ERROR] = " ",
-						[severity.WARN] = " ",
-						[severity.INFO] = " ",
-						[severity.HINT] = " ",
-					},
-				},
-			})
 			require("neo-tree").setup({
 				close_if_last_window = false,
 				popup_border_style = "NC",
